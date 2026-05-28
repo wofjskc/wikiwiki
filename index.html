@@ -1524,4 +1524,391 @@ if (Drupal &amp;&amp; Drupal.quicktabs) {
   </script>
   <!-- ========== END HUBBOT WIDGET ========== -->
 
+
+  <!-- ========== HUBBOT CHAT WIDGET ========== -->
+  <style>
+    /* ── WIDGET WRAPPER ── */
+    .chat-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+    }
+
+    /* ── MAIN CHAT BOX ── */
+    .chat-box {
+      width: 340px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transform-origin: bottom right;
+      animation: popIn 0.25s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.85); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .chat-box.hidden { display: none; }
+
+    /* ── HEADER ── */
+    .chat-header {
+      background: #1a1a2e;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+    }
+
+    .chat-header .bot-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .chat-header .title {
+      font-size: 16px;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .chat-header .close-btn {
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: color 0.2s;
+    }
+    .chat-header .close-btn:hover { color: #fff; }
+
+    /* ── MESSAGES AREA ── */
+    .chat-messages {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #fff;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    /* Bot message row */
+    .bot-message {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .bot-message .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .bot-message .bubble {
+      background: #f3f4f6;
+      border-radius: 0 12px 12px 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #222;
+      max-width: 260px;
+    }
+
+    /* Sub-text */
+    .chat-subtext {
+      font-size: 13px;
+      color: #444;
+      padding: 0 4px;
+    }
+
+    /* ── BUTTONS GRID ── */
+    .chat-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 0 16px 12px;
+    }
+
+    .chat-btn {
+      border: 1.5px solid #d1d5db;
+      background: #fff;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12.5px;
+      color: #222;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+    .chat-btn:hover {
+      background: #f9fafb;
+      border-color: #999;
+    }
+
+    /* ── PRIVACY NOTICE ── */
+    .privacy-notice {
+      background: #f9fafb;
+      border-top: 1px solid #eee;
+      padding: 12px 16px;
+      font-size: 12px;
+      color: #555;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    .privacy-notice a {
+      color: #1a73e8;
+      text-decoration: underline;
+    }
+
+    .privacy-notice .dismiss {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: #999;
+      cursor: pointer;
+    }
+    .privacy-notice .dismiss:hover { color: #333; }
+    .privacy-notice.hidden { display: none; }
+
+    /* ── INPUT AREA ── */
+    .chat-input-area {
+      padding: 12px 16px 8px;
+      border-top: 1px solid #eee;
+    }
+
+    .chat-input-row {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #d1d5db;
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: #fff;
+      gap: 8px;
+    }
+
+    .chat-input-row input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      color: #333;
+      background: transparent;
+    }
+    .chat-input-row input::placeholder { color: #aaa; }
+
+    .chat-input-row .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #aaa;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+    .chat-input-row .icon-btn:hover { color: #555; }
+
+    .chat-disclaimer {
+      text-align: center;
+      font-size: 11px;
+      color: #999;
+      padding: 6px 0 4px;
+    }
+
+    /* ── FAB TOGGLE BUTTON ── */
+    .fab {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #1a1a2e;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      transition: transform 0.2s;
+      color: white;
+      font-size: 22px;
+    }
+    .fab:hover { transform: scale(1.08); }
+  </style>
+
+  <div class="chat-wrapper">
+
+  <!-- CHAT BOX -->
+  <div class="chat-box" id="chatBox">
+
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="bot-avatar">🤖</div>
+      <span class="title">HubBot</span>
+      <button class="close-btn" onclick="toggleChat()">✕</button>
+    </div>
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chatMessages">
+      <div class="bot-message">
+        <div class="avatar">🤖</div>
+        <div class="bubble">👋 Want to chat about HubSpot? I'm an AI chatbot here to help you find your way.</div>
+      </div>
+      <div class="chat-subtext">Ask me or select an option below.</div>
+    </div>
+
+    <!-- Quick buttons -->
+    <div class="chat-buttons">
+      <button class="chat-btn">📅 Book a demo</button>
+      <button class="chat-btn">✏️ Get free training</button>
+      <button class="chat-btn">🚀 Get started free</button>
+      <button class="chat-btn">💬 Chat with sales</button>
+    </div>
+
+    <!-- Privacy notice -->
+    <div class="privacy-notice" id="privacyNotice">
+      HubSpot uses the information you provide to us to contact you about our relevant content, products, and services. Check out our <a href="#">privacy policy</a> here.
+      <button class="dismiss" onclick="dismissPrivacy()">✕</button>
+    </div>
+
+    <!-- Input -->
+    <div class="chat-input-area">
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="Ask me anything..." />
+        <button class="icon-btn">📎</button>
+        <button class="icon-btn" onclick="handleSend()">➤</button>
+      </div>
+      <div class="chat-disclaimer">AI-generated content may be inaccurate.</div>
+    </div>
+
+  </div>
+
+  <!-- FAB toggle button -->
+  <button class="fab" id="fab" onclick="toggleChat()">✕</button>
+
+</div>
+
+  <script>
+  function toggleChat() {
+    const box = document.getElementById('chatBox');
+    const fab = document.getElementById('fab');
+    const isHidden = box.classList.toggle('hidden');
+    fab.textContent = isHidden ? '💬' : '✕';
+  }
+
+  function dismissPrivacy() {
+    document.getElementById('privacyNotice').classList.add('hidden');
+  }
+
+  // ── КОМАНДЫ ──
+  const COMMANDS = {
+    'nfs': 'Здарова',
+    'isp': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;">cd /etc/net/ifaces/ens19
+   cp options /etc/net/ifaces/ens20
+   y
+   cp options /etc/net/ifaces/ens21
+   y
+   vim options <span style="color:#f7931e">(static → dhcp)</span>
+   cd ens20
+   vim ipv4address <span style="color:#f7931e">(172.16.*.*)</span>
+   cd ens21
+   vim ipv4address <span style="color:#f7931e">(172.16.*.*)</span>
+   cd..
+   cd..
+   vim sysctl.conf <span style="color:#f7931e">(net.ipv4.ip_forward = 1)</span>
+   iptables -t nat -A POSTROUTING -o ens19 -j MASQUERADE
+   iptables-save >> /etc/sysconfig/iptables
+   systemctl enable --now iptables
+   reboot</pre>`,
+    // добавляй свои команды здесь: 'команда': 'ответ'
+  };
+
+  function addMessage(text, isBot = true) {
+    const messages = document.getElementById('chatMessages');
+    const row = document.createElement('div');
+    if (isBot) {
+      row.className = 'bot-message';
+      row.innerHTML = `<div class="avatar">🤖</div><div class="bubble">${text}</div>`;
+    } else {
+      row.style.cssText = 'display:flex;justify-content:flex-end;';
+      row.innerHTML = `<div style="background:#1a1a2e;color:#fff;border-radius:12px 0 12px 12px;padding:10px 14px;font-size:14px;max-width:240px;">${text}</div>`;
+    }
+    messages.appendChild(row);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function clearMessages() {
+    const messages = document.getElementById('chatMessages');
+    // Оставляем только первые 2 элемента (bubble + subtext)
+    while (messages.children.length > 2) {
+      messages.removeChild(messages.lastChild);
+    }
+  }
+
+  function handleSend() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+
+    // Команда очистки
+    if (text === 'x') {
+      clearMessages();
+      return;
+    }
+
+    // Показать сообщение пользователя
+    addMessage(text, false);
+
+    // Проверка команд
+    const lower = text.toLowerCase();
+    if (COMMANDS[lower]) {
+      setTimeout(() => addMessage(COMMANDS[lower], true), 300);
+    } else {
+      setTimeout(() => addMessage('Команда не распознана. Попробуй ещё раз.', true), 300);
+    }
+  }
+
+  // Отправка по Enter
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('chatInput');
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') handleSend();
+    });
+  });
+</script>
+  <!-- ========== END HUBBOT WIDGET ========== -->
+
 </body></html>

@@ -1368,161 +1368,7 @@ if (Drupal &amp;&amp; Drupal.quicktabs) {
 </script>
 -->
     </div>
-
-  <!-- ========== HUBBOT CHAT WIDGET ========== -->
-  <style>
-    .chat-wrapper {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-    }
-    .chat-box {
-      width: 340px;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      transform-origin: bottom right;
-      animation: chatPopIn 0.25s cubic-bezier(.34,1.56,.64,1);
-    }
-    @keyframes chatPopIn {
-      from { opacity: 0; transform: scale(0.85); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    .chat-box.hidden { display: none; }
-    .chat-header {
-      background: #1a1a2e;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-    }
-    .chat-header .bot-avatar {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff6b35, #f7931e);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; flex-shrink: 0;
-    }
-    .chat-header .chat-title { font-size: 16px; font-weight: 700; flex: 1; }
-    .chat-header .chat-close {
-      background: none; border: none; color: #aaa;
-      font-size: 20px; cursor: pointer; padding: 2px 4px; border-radius: 4px;
-    }
-    .chat-header .chat-close:hover { color: #fff; }
-    .chat-messages { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-    .bot-msg-row { display: flex; align-items: flex-start; gap: 10px; }
-    .bot-msg-row .b-avatar {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: linear-gradient(135deg, #ff6b35, #f7931e);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; flex-shrink: 0;
-    }
-    .bot-msg-row .bubble {
-      background: #f3f4f6; border-radius: 0 12px 12px 12px;
-      padding: 12px 14px; font-size: 14px; line-height: 1.5; color: #222; max-width: 260px;
-    }
-    .chat-subtext { font-size: 13px; color: #444; padding: 0 4px; }
-    .chat-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 16px 12px; }
-    .chat-btn {
-      border: 1.5px solid #d1d5db; background: #fff; border-radius: 8px;
-      padding: 8px 10px; font-size: 12.5px; color: #222; cursor: pointer;
-      display: flex; align-items: center; gap: 6px; font-weight: 500;
-      transition: background 0.15s, border-color 0.15s; white-space: nowrap;
-    }
-    .chat-btn:hover { background: #f9fafb; border-color: #999; }
-    .privacy-notice {
-      background: #f9fafb; border-top: 1px solid #eee;
-      padding: 12px 16px 12px 16px; font-size: 12px; color: #555;
-      line-height: 1.5; position: relative;
-    }
-    .privacy-notice a { color: #1a73e8; }
-    .privacy-notice .p-dismiss {
-      position: absolute; top: 10px; right: 12px;
-      background: none; border: none; font-size: 16px; color: #999; cursor: pointer;
-    }
-    .privacy-notice.hidden { display: none; }
-    .chat-input-area { padding: 12px 16px 8px; border-top: 1px solid #eee; }
-    .chat-input-row {
-      display: flex; align-items: center;
-      border: 1.5px solid #d1d5db; border-radius: 999px;
-      padding: 8px 14px; background: #fff; gap: 8px;
-    }
-    .chat-input-row input {
-      flex: 1; border: none; outline: none;
-      font-size: 14px; color: #333; background: transparent;
-    }
-    .chat-input-row input::placeholder { color: #aaa; }
-    .chat-input-row .i-btn {
-      background: none; border: none; cursor: pointer;
-      color: #aaa; font-size: 16px; display: flex; align-items: center;
-    }
-    .chat-input-row .i-btn:hover { color: #555; }
-    .chat-disclaimer { text-align: center; font-size: 11px; color: #999; padding: 6px 0 4px; }
-    .chat-fab {
-      width: 52px; height: 52px; border-radius: 50%;
-      background: #1a1a2e; border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-      transition: transform 0.2s; color: white; font-size: 22px;
-    }
-    .chat-fab:hover { transform: scale(1.08); }
-  </style>
-
-  <div class="chat-wrapper">
-    <div class="chat-box" id="hubChatBox">
-      <div class="chat-header">
-        <div class="bot-avatar">🤖</div>
-        <span class="chat-title">HubBot</span>
-        <button class="chat-close" onclick="hubToggle()">✕</button>
-      </div>
-      <div class="chat-messages">
-        <div class="bot-msg-row">
-          <div class="b-avatar">🤖</div>
-          <div class="bubble">👋 Want to chat about HubSpot? I'm an AI chatbot here to help you find your way.</div>
-        </div>
-        <div class="chat-subtext">Ask me or select an option below.</div>
-      </div>
-      <div class="chat-buttons">
-        <button class="chat-btn">📅 Book a demo</button>
-        <button class="chat-btn">✏️ Get free training</button>
-        <button class="chat-btn">🚀 Get started free</button>
-        <button class="chat-btn">💬 Chat with sales</button>
-      </div>
-      <div class="privacy-notice" id="hubPrivacy">
-        HubSpot uses the information you provide to us to contact you about our relevant content, products, and services. Check out our <a href="#">privacy policy</a> here.
-        <button class="p-dismiss" onclick="document.getElementById('hubPrivacy').classList.add('hidden')">✕</button>
-      </div>
-      <div class="chat-input-area">
-        <div class="chat-input-row">
-          <input type="text" placeholder="Ask me anything..." />
-          <button class="i-btn">📎</button>
-          <button class="i-btn">➤</button>
-        </div>
-        <div class="chat-disclaimer">AI-generated content may be inaccurate.</div>
-      </div>
-    </div>
-    <button class="chat-fab" id="hubFab" onclick="hubToggle()">✕</button>
-  </div>
-
-  <script type="text/javascript">
-    function hubToggle() {
-      var box = document.getElementById('hubChatBox');
-      var fab = document.getElementById('hubFab');
-      var hidden = box.classList.toggle('hidden');
-      fab.textContent = hidden ? '💬' : '✕';
-    }
-  </script>
-  <!-- ========== END HUBBOT WIDGET ========== -->
+-->
 
 
   <!-- ========== HUBBOT CHAT WIDGET ========== -->
@@ -1835,6 +1681,154 @@ if (Drupal &amp;&amp; Drupal.quicktabs) {
   // ── КОМАНДЫ ──
   const COMMANDS = {
     'nfs': 'Здарова',
+    'base': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ALT - hostname:</b>
+vim /etc/hostname
+
+<b>ELTEX - hostname:</b>
+config
+hostname ...
+
+<b>ALT - сеть:</b>
+cd /etc/net/ifaces/ens19
+vim ipv4address       <span style="color:#f7931e">(ip машины)</span>
+vim ipv4route         <span style="color:#f7931e">(default via айпи шлюза)</span>
+vim resolv.conf       <span style="color:#f7931e">(nameserver 8.8.8.8)</span>
+
+<b>ELTEX HQ-RTR:</b>
+show interfaces status
+config
+int gi 1/0/1
+  description external
+  ip firewall disable
+  ip address 172.16.4.2/28
+  exit
+interface gi 1/0/2
+  description servers
+  ip firewall disable
+  ip address 192.168.10.1/26
+  exit
+interface gi 1/0/3
+  description clients
+  ip firewall disable
+  ip address 192.168.10.65/28
+  exit
+interface gi 1/0/4
+  description mgmt
+  ip firewall disable
+  ip address 192.168.10.81/29
+  exit
+ip route 0.0.0.0/0 172.16.4.1
+end
+commit
+confirm</pre>`,
+
+    'user': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ALT:</b>
+useradd sshuser -u 1010
+passwd sshuser P@ssw0rd
+vim /etc/sudoers.d/sshuser
+  sshuser ALL=(ALL) NOPASSWD: ALL
+usermod -aG wheel sshuser
+
+<b>ELTEX:</b>
+config
+username net_admin
+password P@ssw0rd
+privilege 15
+end
+commit
+confirm</pre>`,
+
+    'time': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ALT:</b>
+timedatectl set-timezone Asia/Yekaterinburg
+
+<b>ELTEX:</b>
+config
+clock timezone gmt +5
+exit
+commit
+confirm</pre>`,
+
+    'nat': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">⚠ Настройка отличается от BR-RTR только айпишниками</span>
+
+hq-rtr# config
+object-group network HQ
+  ip address-range 192.168.10.1-192.168.10.254
+  exit
+nat source
+  pool WAN_POOL
+    ip address-range 172.16.4.2
+    exit
+  ruleset SNAT
+    to interface gi 1/0/1
+    rule 1
+      match source-address HQ
+      action source-nat pool WAN_POOL
+      enable
+end
+commit
+confirm
+
+<span style="color:#27ae60">✔ Проверка: ping 8.8.8.8 с каждого устройства</span></pre>`,
+
+    'ssh': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">Выполняется одинаково на HQ-SRV и BR-SRV</span>
+
+vim /etc/openssh/sshd_config
+  Port 2026
+  AllowUsers sshuser
+  MaxAuthTries 2
+  Banner /etc/openssh/banner
+
+echo "Authorized access only" > /etc/openssh/banner
+systemctl restart sshd
+
+<b>Проверка подключения:</b>
+ssh sshuser@(адрес_сервера) -p 2026</pre>`,
+
+    'tunnel': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">Меняем только айпишники при настройке BR-RTR</span>
+
+hq-rtr(config)# tunnel gre 1
+  description to-br-rtr
+  ip firewall disable
+  local address 172.16.4.2
+  remote address 172.16.5.2
+  ip address 100.10.10.1/30
+  ttl 16
+  enable
+  exit</pre>`,
+
+    'ospf': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">Меняем айпишники при настройке BR-SRV</span>
+
+key-chain auth_ospf
+  key 1
+    key-string ascii-text P@ssw0rd
+    exit
+router ospf 1
+  router-id 100.10.10.1
+  area 0.0.0.0
+    network 192.168.10.0/26
+    network 192.168.10.64/28
+    network 192.168.10.80/29
+    enable
+    exit
+tunnel gre 1
+  ip ospf instance 1
+  ip ospf
+  ip ospf authentication key-chain auth_ospf
+  ip ospf authentication algorithm md5
+end
+commit
+confirm</pre>`,
+
+    'dhcp': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;">ip dhcp-server
+ip dhcp-server pool CLI-pool
+  network 192.168.10.64/28
+  address-range 192.168.10.66-192.168.10.78
+  default-router 192.168.10.65
+  dns-server 192.168.10.2
+  domain-name au-team.irpo
+end
+commit
+confirm</pre>`,
     'isp': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;">cd /etc/net/ifaces/ens19
    cp options /etc/net/ifaces/ens20
    y

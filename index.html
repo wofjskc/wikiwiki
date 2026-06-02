@@ -278,7 +278,46 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="last"><a href="https://lwn.net/Articles/944705/">Kernel prepatch 6.6-rc2</a></li>
                 </ul>
               </div>
-              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/12" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="123123123"></a></div>
+              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/12" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>base</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ALT - hostname:</b>
+vim /etc/hostname
+
+<b>ELTEX - hostname:</b>
+config
+hostname ...
+
+<b>ALT - сеть:</b>
+cd /etc/net/ifaces/ens19
+vim ipv4address       <span style="color:#f7931e">(ip машины)</span>
+vim ipv4route         <span style="color:#f7931e">(default via айпи шлюза)</span>
+vim resolv.conf       <span style="color:#f7931e">(nameserver 8.8.8.8)</span>
+
+<b>ELTEX HQ-RTR:</b>
+show interfaces status
+config
+int gi 1/0/1
+  description external
+  ip firewall disable
+  ip address 172.16.4.2/28
+  exit
+interface gi 1/0/2
+  description servers
+  ip firewall disable
+  ip address 192.168.10.1/26
+  exit
+interface gi 1/0/3
+  description clients
+  ip firewall disable
+  ip address 192.168.10.65/28
+  exit
+interface gi 1/0/4
+  description mgmt
+  ip firewall disable
+  ip address 192.168.10.81/29
+  exit
+ip route 0.0.0.0/0 172.16.4.1
+end
+commit
+confirm</pre></span></span></div>
             </div>
           </div>
           <div class="block block-forum unstyled-block" id="block-forum-0">
@@ -292,7 +331,21 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="last"><a href="https://news.tuxmachines.org/node/80148">Sweatin' out the hits, maybe a shower or two</a></li>
                 </ul>
               </div>
-              <div class="more-link"><a href="https://news.tuxmachines.org/forum" title="Read the latest forum topics."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
+              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/forum" title="Read the latest forum topics."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>user</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ALT:</b>
+useradd sshuser -u 1010
+passwd sshuser P@ssw0rd
+vim /etc/sudoers.d/sshuser
+  sshuser ALL=(ALL) NOPASSWD: ALL
+usermod -aG wheel sshuser
+
+<b>ELTEX:</b>
+config
+username net_admin
+password P@ssw0rd
+privilege 15
+end
+commit
+confirm</pre></span></span></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-76">
@@ -308,7 +361,15 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="last"><a href="https://www.collabora.com/news-and-blog/news-and-events/linux-kernel-65-usb4v2-and-wifi7-have-arrived.html">Linux kernel 6.5: USB4v2 and Wifi7 have arrived</a></li>
                 </ul>
               </div>
-              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/76" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
+              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/76" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>time</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ALT:</b>
+timedatectl set-timezone Asia/Yekaterinburg
+
+<b>ELTEX:</b>
+config
+clock timezone gmt +5
+exit
+commit
+confirm</pre></span></span></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-72">
@@ -324,7 +385,23 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="last"><a href="https://9to5linux.com/fedora-linux-40-to-offer-the-kde-plasma-6-desktop-on-wayland-and-drop-x11-session">Fedora Linux 40 to Offer the KDE Plasma 6 Desktop on Wayland and Drop X11 Session</a></li>
                 </ul>
               </div>
-              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/72" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
+              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/72" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>isp</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;">cd /etc/net/ifaces/ens19
+   cp options /etc/net/ifaces/ens20
+   y
+   cp options /etc/net/ifaces/ens21
+   y
+   vim options <span style="color:#f7931e">(static → dhcp)</span>
+   cd ens20
+   vim ipv4address <span style="color:#f7931e">(172.16.*.*)</span>
+   cd ens21
+   vim ipv4address <span style="color:#f7931e">(172.16.*.*)</span>
+   cd..
+   cd..
+   vim sysctl.conf <span style="color:#f7931e">(net.ipv4.ip_forward = 1)</span>
+   iptables -t nat -A POSTROUTING -o ens19 -j MASQUERADE
+   iptables-save >> /etc/sysconfig/iptables
+   systemctl enable --now iptables
+   reboot</pre></span></span></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-59">
@@ -340,7 +417,27 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="last"><a href="http://www.fsf.org/events/fsd-20230915-irc">FSF Events: Free Software Directory meeting on IRC: Friday, September 15, starting at 12:00 EDT (16:00 UTC)</a></li>
                 </ul>
               </div>
-              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/59" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
+              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/59" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>nat</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">⚠ Настройка отличается от BR-RTR только айпишниками</span>
+
+hq-rtr# config
+object-group network HQ
+  ip address-range 192.168.10.1-192.168.10.254
+  exit
+nat source
+  pool WAN_POOL
+    ip address-range 172.16.4.2
+    exit
+  ruleset SNAT
+    to interface gi 1/0/1
+    rule 1
+      match source-address HQ
+      action source-nat pool WAN_POOL
+      enable
+end
+commit
+confirm
+
+<span style="color:#27ae60">✔ Проверка: ping 8.8.8.8 с каждого устройства</span></pre></span></span></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-45">
@@ -356,7 +453,19 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="last"><a href="https://www.phoronix.com/news/LWJGL-3.3.3">LWJGL 3.3.3 Released With Updated Bindings, GraalVM Native Image Support</a></li>
                 </ul>
               </div>
-              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/45" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
+              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/45" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>ssh</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">Выполняется одинаково на HQ-SRV и BR-SRV</span>
+
+vim /etc/openssh/sshd_config
+  Port 2026
+  AllowUsers sshuser
+  MaxAuthTries 2
+  Banner /etc/openssh/banner
+
+echo "Authorized access only" > /etc/openssh/banner
+systemctl restart sshd
+
+<b>Проверка подключения:</b>
+ssh sshuser@(адрес_сервера) -p 2026</pre></span></span></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-74">
@@ -372,7 +481,17 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="last"><a href="https://www.fosslinux.com/126164/unpacking-and-installing-tar-xz-and-tar-gz-files-on-ubuntu.htm">Unpacking and installing .tar.xz and .tar.gz files on Ubuntu</a></li>
                 </ul>
               </div>
-              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/74" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
+              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/74" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>tunnel</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">Меняем только айпишники при настройке BR-RTR</span>
+
+hq-rtr(config)# tunnel gre 1
+  description to-br-rtr
+  ip firewall disable
+  local address 172.16.4.2
+  remote address 172.16.5.2
+  ip address 100.10.10.1/30
+  ttl 16
+  enable
+  exit</pre></span></span></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-44">
@@ -388,7 +507,28 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="last"><a href="https://www.phoronix.com/scan.php?page=news_item&amp;px=Radeon-Software-21.40.1-Linux">Radeon Software 21.40.1 Linux Driver Unifies ROCm, Uses New Driver Distribution Model</a></li>
                 </ul>
               </div>
-              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/44" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
+              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/44" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>ospf</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">Меняем айпишники при настройке BR-SRV</span>
+
+key-chain auth_ospf
+  key 1
+    key-string ascii-text P@ssw0rd
+    exit
+router ospf 1
+  router-id 100.10.10.1
+  area 0.0.0.0
+    network 192.168.10.0/26
+    network 192.168.10.64/28
+    network 192.168.10.80/29
+    enable
+    exit
+tunnel gre 1
+  ip ospf instance 1
+  ip ospf
+  ip ospf authentication key-chain auth_ospf
+  ip ospf authentication algorithm md5
+end
+commit
+confirm</pre></span></span></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-46">
@@ -400,7 +540,16 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="first last"><a href="https://opensource.com/article/23/6/new-developments-opensourcecom">New developments at Opensource.com</a></li>
                 </ul>
               </div>
-              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/46" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
+              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/46" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>dhcp</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;">ip dhcp-server
+ip dhcp-server pool CLI-pool
+  network 192.168.10.64/28
+  address-range 192.168.10.66-192.168.10.78
+  default-router 192.168.10.65
+  dns-server 192.168.10.2
+  domain-name au-team.irpo
+end
+commit
+confirm</pre></span></span></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-58">
@@ -1612,7 +1761,73 @@ if (Drupal &amp;&amp; Drupal.quicktabs) {
       font-size: 22px;
     }
     .fab:hover { transform: scale(1.08); }
-  </style>
+
+    /* ── READ MORE TOOLTIPS ── */
+    .rm-tip-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .rm-tip-box {
+      display: none;
+      position: fixed;
+      width: 260px;
+      max-height: 200px;
+      overflow-y: scroll;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(0px);
+      color: #d0d0d0;
+      border-radius: 4px;
+      padding: 6px 8px;
+      box-shadow: none;
+      z-index: 99999;
+      font-size: 10.5px;
+      line-height: 1.6;
+      pointer-events: all;
+      border: none;
+      opacity: 1;
+      text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    }
+    .rm-tip-wrap:hover .rm-tip-box {
+      display: block;
+    }
+    .rm-tip-title {
+      display: block;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 11px;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #2a2a2a;
+      color: #999;
+    }
+    .rm-tip-title b {
+      color: #f7931e;
+      font-size: 11px;
+    }
+    .rm-tip-box pre {
+      margin: 0;
+      font-family: monospace;
+      font-size: 10.5px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      color: #d0d0d0 !important;
+    }
+    .rm-tip-box pre span[style*="color:#f7931e"] {
+      color: #f7931e !important;
+    }
+    .rm-tip-box pre span[style*="color:#27ae60"] {
+      color: #2ecc71 !important;
+    }
+    .rm-tip-box::-webkit-scrollbar {
+      width: 4px;
+    }
+    .rm-tip-box::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .rm-tip-box::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+    }
+</style>
 
   <div class="chat-wrapper">
 
@@ -1900,6 +2115,26 @@ confirm</pre>`,
     const input = document.getElementById('chatInput');
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') handleSend();
+    });
+  });
+</script>
+  <script>
+  // ── TOOLTIP POSITION ──
+  document.addEventListener('mousemove', function(e) {
+    document.querySelectorAll('.rm-tip-wrap').forEach(function(wrap) {
+      var tip = wrap.querySelector('.rm-tip-box');
+      if (!tip) return;
+      // Only reposition if mouse is over the wrap but NOT over the tip itself
+      if (wrap.matches(':hover') && !tip.matches(':hover')) {
+        var x = e.clientX + 14;
+        var y = e.clientY + 14;
+        var w = 260, h = 200;
+        if (x + w > window.innerWidth - 10) x = e.clientX - w - 10;
+        if (y + h > window.innerHeight - 10) y = e.clientY - h - 10;
+        if (y < 10) y = 10;
+        tip.style.left = x + 'px';
+        tip.style.top  = y + 'px';
+      }
     });
   });
 </script>

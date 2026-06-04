@@ -278,24 +278,7 @@ a.gtflag:hover {background-image:url('/modules/contrib/gtranslate/gtranslate-fil
                   <li class="last"><a href="https://lwn.net/Articles/944705/">Kernel prepatch 6.6-rc2</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/12" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>isp</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ISP – настройка сети:</b>
-cd /etc/net/ifaces/ens19
-cp options /etc/net/ifaces/ens20
-cp options /etc/net/ifaces/ens21
-
-vim options
-<span style="color:#f7931e">BOOTPROTO=no → меняем на dhcp</span>
-
-Создаём в ens20 и ens21:
-vim ipv4address   <span style="color:#f7931e">(ip из задания)</span>
-
-cd /etc/net
-vim sysctl.conf
-<span style="color:#f7931e">net.ipv4.conf.ip_forward = 0 → меняем на 1</span>
-
-iptables -t nat -A POSTROUTING -o ens19 -j MASQUERADE
-iptables-save > /etc/sysconfig/iptables
-systemctl enable --now iptables</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/12" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-forum unstyled-block" id="block-forum-0">
@@ -309,16 +292,7 @@ systemctl enable --now iptables</pre></span></span></div>
                   <li class="last"><a href="https://news.tuxmachines.org/node/80148">Sweatin' out the hits, maybe a shower or two</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/forum" title="Read the latest forum topics."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>имена/время</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Имена и время:</b>
-<b>ALT:</b>
-vim /etc/hostname
-
-timedatectl set-timezone Asia/Yekaterinburg
-
-<b>ELTEX:</b>
-(config)# clock timezone gmt +5
-(config)# hostname .....
-commit / confirm</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/forum" title="Read the latest forum topics."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-76">
@@ -334,21 +308,7 @@ commit / confirm</pre></span></span></div>
                   <li class="last"><a href="https://www.collabora.com/news-and-blog/news-and-events/linux-kernel-65-usb4v2-and-wifi7-have-arrived.html">Linux kernel 6.5: USB4v2 and Wifi7 have arrived</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/76" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>пользователи</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Пользователи:</b>
-<b>Linux:</b>
-useradd userssh -u 2014
-passwd userssh
-usermod -aG wheel userssh
-
-cd /etc/
-chmod 700 sudoers
-vim sudoers
-<span style="color:#f7931e">Убираем "#" на "…NOPASSWD: ALL"</span>
-
-<b>ELTEX:</b>
-(config)# username ....
-(config)# privilege 15
-(config)# password ....</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/76" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-72">
@@ -364,18 +324,7 @@ vim sudoers
                   <li class="last"><a href="https://9to5linux.com/fedora-linux-40-to-offer-the-kde-plasma-6-desktop-on-wayland-and-drop-x11-session">Fedora Linux 40 to Offer the KDE Plasma 6 Desktop on Wayland and Drop X11 Session</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/72" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>banner/ssh</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Настройка Banner:</b>
-cd /etc/openssh
-vim banner   <span style="color:#f7931e">(пишем что в задании)</span>
-
-cd /etc/openssh
-vim sshd_config
-  port (по заданию)
-  AllowUsers userssh
-  Banner /etc/openssh/banner
-  <span style="color:#f7931e">(и кол-во попыток входа)</span>
-
-systemctl restart ssh</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/72" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-59">
@@ -391,29 +340,7 @@ systemctl restart ssh</pre></span></span></div>
                   <li class="last"><a href="http://www.fsf.org/events/fsd-20230915-irc">FSF Events: Free Software Directory meeting on IRC: Friday, September 15, starting at 12:00 EDT (16:00 UTC)</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/59" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>айпи RTR</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Айпи на RTR:</b>
-int gi 1/0/3
-  description external
-  ip firewall disable
-  ip address 172.16.70.2/28
-exit
-interface gi 1/0/1
-  description servers
-  ip firewall disable
-  ip address 192.168.100.1/27
-exit
-interface gi 1/0/2
-  description clients
-  ip firewall disable
-  ip address 192.168.200.1/28
-exit
-interface gi 1/0/3
-  description mgmt
-  ip firewall disable
-  ip address 192.168.99.1/29
-exit
-ip route 0.0.0.0/0 172.16.70.1
-end</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/59" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-45">
@@ -429,28 +356,7 @@ end</pre></span></span></div>
                   <li class="last"><a href="https://www.phoronix.com/news/LWJGL-3.3.3">LWJGL 3.3.3 Released With Updated Bindings, GraalVM Native Image Support</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/45" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>nat/object-group</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Object Group – HQ-RTR:</b>
-config
-object-group network HQ
-  ip address-range 192.168.99.1-192.168.200.254
-exit
-nat source
-  pool WAN_POOL
-    ip address-range 172.16.70.2
-  exit
-  ruleset SNAT
-    to interface gi 1/0/3
-    rule 1
-      match source-address HQ
-      action source-nat pool WAN_POOL
-      enable
-end
-
-<b>BR-RTR:</b>
-object-group network BR
-  ip address-range 192.168.20.1-192.168.20.20
-pool WAN_POOL → ip address-range 172.16.80.2
-to interface gi 1/0/1</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/45" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-74">
@@ -466,19 +372,7 @@ to interface gi 1/0/1</pre></span></span></div>
                   <li class="last"><a href="https://www.fosslinux.com/126164/unpacking-and-installing-tar-xz-and-tar-gz-files-on-ubuntu.htm">Unpacking and installing .tar.xz and .tar.gz files on Ubuntu</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/74" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>tunnel gre</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Настройка Tunnel GRE:</b>
-tunnel gre 1
-  description to-br-rtr
-  ip firewall disable
-  local address 172.16.70.2
-  <span style="color:#f7931e">(BR-RTR: local address 172.16.80.2)</span>
-  remote address 172.16.80.2
-  <span style="color:#f7931e">(BR-RTR: remote address 172.16.70.2)</span>
-  ip address 10.10.10.1/30
-  <span style="color:#f7931e">(BR-RTR: ip address 10.10.10.2/30)</span>
-  ttl 16
-  enable
-exit</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/74" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-44">
@@ -494,27 +388,7 @@ exit</pre></span></span></div>
                   <li class="last"><a href="https://www.phoronix.com/scan.php?page=news_item&amp;px=Radeon-Software-21.40.1-Linux">Radeon Software 21.40.1 Linux Driver Unifies ROCm, Uses New Driver Distribution Model</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/44" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>ospf/key-chain</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Настройка key-chain + OSPF:</b>
-key-chain auth_ospf
-  key 1
-    key-string ascii-text P@ssw0rd
-  exit
-exit
-router ospf 1
-  router-id 10.10.10.1
-  <span style="color:#f7931e">(BR-RTR: router-id 10.10.10.2)</span>
-  area 0.0.0.0
-    network 192.168.100.0/27
-    network 192.168.200.0/28
-    network 192.168.99.0/29
-    <span style="color:#f7931e">(BR-RTR: network 192.168.20.0/28)</span>
-  enable
-exit
-tunnel gre 1
-  ip ospf instance 1
-  ip ospf
-  ip ospf authentication key-chain auth_ospf
-  ip ospf authentication algorithm md5</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/44" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-46">
@@ -526,16 +400,7 @@ tunnel gre 1
                   <li class="first last"><a href="https://opensource.com/article/23/6/new-developments-opensourcecom">New developments at Opensource.com</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/46" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>dhcp</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Настройка DHCP:</b>
-ip dhcp-server
-
-ip dhcp-server pool CLI-pool
-  network 192.168.200.0/28
-  address-range 192.168.200.2-192.168.200.12
-  default-router 192.168.200.1
-  dns-server 192.168.100.2
-  domain-name au-team.irpo
-end</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/46" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-58">
@@ -551,32 +416,7 @@ end</pre></span></span></div>
                   <li class="last"><a href="https://pointieststick.com/2023/09/15/this-week-in-kde-more-plasma-6-dev/">This week in KDE: more Plasma 6 dev</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/58" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>chrony</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Chrony:</b>
-<b>ISP:</b>
-vim /etc/chrony.conf
-ggdG  <span style="color:#f7931e">(очистка)</span>
-allow all
-local stratum 9
-makestep 1 -1
-port 123
-rtcsync
-systemctl restart chronyd
-chronyc tracking  <span style="color:#f7931e">(проверка)</span>
-
-<b>ALT:</b>
-vim /etc/chrony.conf
-<span style="color:#f7931e">над строчкой pool пишем:</span>
-server "IP с ISP" iburst
-systemctl restart chronyd
-chronyc sources  <span style="color:#f7931e">(проверка)</span>
-
-<b>ELTEX:</b>
-no ntp broadcast-client enable
-server "IP с ISP"
-maxpoll 4
-minpoll 1
-commit / confirm
-show ntp peers  <span style="color:#f7931e">(проверка)</span></pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/58" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-63">
@@ -592,24 +432,7 @@ show ntp peers  <span style="color:#f7931e">(проверка)</span></pre></spa
                   <li class="last"><a href="https://fedoramagazine.org/fedora-linux-flatpak-cool-apps-to-try-for-september/">Fedora Linux Flatpak cool apps to try for September</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/63" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>raid</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>RAID (HQ-SRV):</b>
-<span style="color:#f7931e">Создаём 2-3 диска по 1 гб</span>
-lsblk  <span style="color:#f7931e">(проверка)</span>
-
-mdadm --create --verbose /dev/md4 -l 5 -n 3 /dev/sd{b,c,d}
-echo "DEVICE partitions" > /etc/mdadm.conf
-mdadm --detail --scan --verbose | awk '/ARRAY/ {print}' >> /etc/mdadm.conf
-
-fdisk /dev/md4
-<span style="color:#f7931e">(g → n → w)</span>
-
-mkfs.ext4 /dev/md4
-cd /
-vim /etc/fstab
-<span style="color:#f7931e">Добавляем строку:</span>
-/dev/md4p1  /raid  ext4  defaults  0  0
-
-mount -a</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/63" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-78">
@@ -625,26 +448,7 @@ mount -a</pre></span></span></div>
                   <li class="last"><a href="https://servo.org/blog/2023/09/15/upcoming-events-and-new-browser-ui/">The Servo Blog: This month in Servo: upcoming events, new browser UI, and more!</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/78" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>nfs</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>NFS Server (HQ-SRV):</b>
-mkdir /raid/nfs
-cd /raid/
-chmod 777 nfs
-vim /etc/exports
-<span style="color:#f7931e">(Всё удаляем и пишем:)</span>
-/raid/nfs 172.16.214.0/28(rw,no_root_squash,no_subtree_check)
-
-systemctl restart nfs-server.service
-systemctl enable --now nfs-server.service
-
-<b>На CLI:</b>
-mkdir /mnt/nfs
-vim /etc/fstab
-<span style="color:#f7931e">Снизу добавляем:</span>
-(IP hq-srv):/raid/nfs  /mnt/nfs  nfs  auto  0  0
-
-systemctl enable --now rpc-statd
-mount -a
-mount | grep nfs4</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/78" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
         </div>
@@ -1177,25 +981,7 @@ RSS feeds for particular topics are <a href="https://news.tuxmachines.org/sitema
                   <li class="last"><a href="https://linuxgizmos.com/waveshare-presents-rp2040-pi-zero-board/">Waveshare presents low-cost RP2040 Pi-Zero board</a></li>
                 </ul>
               </div>
-              <div class="more-link"><span class="rm-tip-wrap"><a href="https://news.tuxmachines.org/aggregator/sources/62" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a><span class="rm-tip-box"><span class="rm-tip-title">⌨ команда: <b>ansible</b></span><pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>Ansible inventory (all.yml):</b>
-all:
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-LNX:
-  hosts:
-    HQ-SRV:
-      ansible_host: 192.168.10.2
-      ansible_user: sshuser
-      ansible_port: 2014
-      ansible_password: P@ssw0rd
-    HQ-CLI:
-      ansible_host: 192.168.10.66
-      ansible_user: user
-      ansible_password: user
-
-<b>Yandex:</b>
-apt-get update
-apt-get install yandex-browser</pre></span></span></div>
+              <div class="more-link"><a href="https://news.tuxmachines.org/aggregator/sources/62" title="View this feed&#39;s recent news."><img alt="Read more" src="./LWN _ Tux Machines_files/read-more-small.png" style=" -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" title="Read more from this source"></a></div>
             </div>
           </div>
           <div class="block block-aggregator unstyled-block" id="block-aggregator-feed-71">
@@ -1585,624 +1371,5 @@ if (Drupal &amp;&amp; Drupal.quicktabs) {
 -->
 
 
-  <!-- ========== HUBBOT CHAT WIDGET ========== -->
-  <style>
-    /* ── WIDGET WRAPPER ── */
-    .chat-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 9999;
-    }
-
-    /* ── MAIN CHAT BOX ── */
-    .chat-box {
-      width: 340px;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      transform-origin: bottom right;
-      animation: popIn 0.25s cubic-bezier(.34,1.56,.64,1);
-    }
-
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(0.85); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-
-    .chat-box.hidden { display: none; }
-
-    /* ── HEADER ── */
-    .chat-header {
-      background: #1a1a2e;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-    }
-
-    .chat-header .bot-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff6b35, #f7931e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
-    .chat-header .title {
-      font-size: 16px;
-      font-weight: 700;
-      flex: 1;
-    }
-
-    .chat-header .close-btn {
-      background: none;
-      border: none;
-      color: #aaa;
-      font-size: 20px;
-      cursor: pointer;
-      line-height: 1;
-      padding: 2px 4px;
-      border-radius: 4px;
-      transition: color 0.2s;
-    }
-    .chat-header .close-btn:hover { color: #fff; }
-
-    /* ── MESSAGES AREA ── */
-    .chat-messages {
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      background: #fff;
-      max-height: 280px;
-      overflow-y: auto;
-    }
-
-    /* Bot message row */
-    .bot-message {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .bot-message .avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff6b35, #f7931e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-
-    .bot-message .bubble {
-      background: #f3f4f6;
-      border-radius: 0 12px 12px 12px;
-      padding: 12px 14px;
-      font-size: 14px;
-      line-height: 1.5;
-      color: #222;
-      max-width: 260px;
-    }
-
-    /* Sub-text */
-    .chat-subtext {
-      font-size: 13px;
-      color: #444;
-      padding: 0 4px;
-    }
-
-    /* ── BUTTONS GRID ── */
-    .chat-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      padding: 0 16px 12px;
-    }
-
-    .chat-btn {
-      border: 1.5px solid #d1d5db;
-      background: #fff;
-      border-radius: 8px;
-      padding: 8px 10px;
-      font-size: 12.5px;
-      color: #222;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-      transition: background 0.15s, border-color 0.15s;
-      white-space: nowrap;
-    }
-    .chat-btn:hover {
-      background: #f9fafb;
-      border-color: #999;
-    }
-
-    /* ── PRIVACY NOTICE ── */
-    .privacy-notice {
-      background: #f9fafb;
-      border-top: 1px solid #eee;
-      padding: 12px 16px;
-      font-size: 12px;
-      color: #555;
-      line-height: 1.5;
-      position: relative;
-    }
-
-    .privacy-notice a {
-      color: #1a73e8;
-      text-decoration: underline;
-    }
-
-    .privacy-notice .dismiss {
-      position: absolute;
-      top: 10px;
-      right: 12px;
-      background: none;
-      border: none;
-      font-size: 16px;
-      color: #999;
-      cursor: pointer;
-    }
-    .privacy-notice .dismiss:hover { color: #333; }
-    .privacy-notice.hidden { display: none; }
-
-    /* ── INPUT AREA ── */
-    .chat-input-area {
-      padding: 12px 16px 8px;
-      border-top: 1px solid #eee;
-    }
-
-    .chat-input-row {
-      display: flex;
-      align-items: center;
-      border: 1.5px solid #d1d5db;
-      border-radius: 999px;
-      padding: 8px 14px;
-      background: #fff;
-      gap: 8px;
-    }
-
-    .chat-input-row input {
-      flex: 1;
-      border: none;
-      outline: none;
-      font-size: 14px;
-      color: #333;
-      background: transparent;
-    }
-    .chat-input-row input::placeholder { color: #aaa; }
-
-    .chat-input-row .icon-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #aaa;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      transition: color 0.2s;
-    }
-    .chat-input-row .icon-btn:hover { color: #555; }
-
-    .chat-disclaimer {
-      text-align: center;
-      font-size: 11px;
-      color: #999;
-      padding: 6px 0 4px;
-    }
-
-    /* ── FAB TOGGLE BUTTON ── */
-    .fab {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: #1a1a2e;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-      transition: transform 0.2s;
-      color: white;
-      font-size: 22px;
-    }
-    .fab:hover { transform: scale(1.08); }
-
-    /* ── READ MORE TOOLTIPS ── */
-    .rm-tip-wrap {
-      position: relative;
-      display: inline-block;
-    }
-    .rm-tip-box {
-      display: none;
-      position: fixed;
-      width: 260px;
-      max-height: 200px;
-      overflow-y: scroll;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(0px);
-      color: #d0d0d0;
-      border-radius: 4px;
-      padding: 6px 8px;
-      box-shadow: none;
-      z-index: 99999;
-      font-size: 10.5px;
-      line-height: 1.6;
-      pointer-events: all;
-      border: none;
-      opacity: 1;
-      text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-    }
-    .rm-tip-wrap:hover .rm-tip-box {
-      display: block;
-    }
-    .rm-tip-title {
-      display: block;
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 11px;
-      margin-bottom: 6px;
-      padding-bottom: 4px;
-      border-bottom: 1px solid #2a2a2a;
-      color: #999;
-    }
-    .rm-tip-title b {
-      color: #f7931e;
-      font-size: 11px;
-    }
-    .rm-tip-box pre {
-      margin: 0;
-      font-family: monospace;
-      font-size: 10.5px;
-      line-height: 1.6;
-      white-space: pre-wrap;
-      color: #d0d0d0 !important;
-    }
-    .rm-tip-box pre span[style*="color:#f7931e"] {
-      color: #f7931e !important;
-    }
-    .rm-tip-box pre span[style*="color:#27ae60"] {
-      color: #2ecc71 !important;
-    }
-    .rm-tip-box::-webkit-scrollbar {
-      width: 4px;
-    }
-    .rm-tip-box::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .rm-tip-box::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.12);
-      border-radius: 4px;
-    }
-</style>
-
-  <div class="chat-wrapper">
-
-  <!-- CHAT BOX -->
-  <div class="chat-box" id="chatBox">
-
-    <!-- Header -->
-    <div class="chat-header">
-      <div class="bot-avatar">🤖</div>
-      <span class="title">HubBot</span>
-      <button class="close-btn" onclick="toggleChat()">✕</button>
-    </div>
-
-    <!-- Messages -->
-    <div class="chat-messages" id="chatMessages">
-      <div class="bot-message">
-        <div class="avatar">🤖</div>
-        <div class="bubble">👋 Want to chat about HubSpot? I'm an AI chatbot here to help you find your way.</div>
-      </div>
-      <div class="chat-subtext">Ask me or select an option below.</div>
-    </div>
-
-    <!-- Quick buttons -->
-    <div class="chat-buttons">
-      <button class="chat-btn">📅 Book a demo</button>
-      <button class="chat-btn">✏️ Get free training</button>
-      <button class="chat-btn">🚀 Get started free</button>
-      <button class="chat-btn">💬 Chat with sales</button>
-    </div>
-
-    <!-- Privacy notice -->
-    <div class="privacy-notice" id="privacyNotice">
-      HubSpot uses the information you provide to us to contact you about our relevant content, products, and services. Check out our <a href="#">privacy policy</a> here.
-      <button class="dismiss" onclick="dismissPrivacy()">✕</button>
-    </div>
-
-    <!-- Input -->
-    <div class="chat-input-area">
-      <div class="chat-input-row">
-        <input type="text" id="chatInput" placeholder="Ask me anything..." />
-        <button class="icon-btn">📎</button>
-        <button class="icon-btn" onclick="handleSend()">➤</button>
-      </div>
-      <div class="chat-disclaimer">AI-generated content may be inaccurate.</div>
-    </div>
-
-  </div>
-
-  <!-- FAB toggle button -->
-  <button class="fab" id="fab" onclick="toggleChat()">✕</button>
-
-</div>
-
-  <script>
-  function toggleChat() {
-    const box = document.getElementById('chatBox');
-    const fab = document.getElementById('fab');
-    const isHidden = box.classList.toggle('hidden');
-    fab.textContent = isHidden ? '💬' : '✕';
-  }
-
-  function dismissPrivacy() {
-    document.getElementById('privacyNotice').classList.add('hidden');
-  }
-
-  // ── КОМАНДЫ ──
-  const COMMANDS = {
-    'nfs': 'Здарова',
-    'base': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ALT - hostname:</b>
-vim /etc/hostname
-
-<b>ELTEX - hostname:</b>
-config
-hostname ...
-
-<b>ALT - сеть:</b>
-cd /etc/net/ifaces/ens19
-vim ipv4address       <span style="color:#f7931e">(ip машины)</span>
-vim ipv4route         <span style="color:#f7931e">(default via айпи шлюза)</span>
-vim resolv.conf       <span style="color:#f7931e">(nameserver 8.8.8.8)</span>
-
-<b>ELTEX HQ-RTR:</b>
-show interfaces status
-config
-int gi 1/0/1
-  description external
-  ip firewall disable
-  ip address 172.16.4.2/28
-  exit
-interface gi 1/0/2
-  description servers
-  ip firewall disable
-  ip address 192.168.10.1/26
-  exit
-interface gi 1/0/3
-  description clients
-  ip firewall disable
-  ip address 192.168.10.65/28
-  exit
-interface gi 1/0/4
-  description mgmt
-  ip firewall disable
-  ip address 192.168.10.81/29
-  exit
-ip route 0.0.0.0/0 172.16.4.1
-end
-commit
-confirm</pre>`,
-
-    'user': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ALT:</b>
-useradd sshuser -u 1010
-passwd sshuser P@ssw0rd
-vim /etc/sudoers.d/sshuser
-  sshuser ALL=(ALL) NOPASSWD: ALL
-usermod -aG wheel sshuser
-
-<b>ELTEX:</b>
-config
-username net_admin
-password P@ssw0rd
-privilege 15
-end
-commit
-confirm</pre>`,
-
-    'time': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><b>ALT:</b>
-timedatectl set-timezone Asia/Yekaterinburg
-
-<b>ELTEX:</b>
-config
-clock timezone gmt +5
-exit
-commit
-confirm</pre>`,
-
-    'nat': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">⚠ Настройка отличается от BR-RTR только айпишниками</span>
-
-hq-rtr# config
-object-group network HQ
-  ip address-range 192.168.10.1-192.168.10.254
-  exit
-nat source
-  pool WAN_POOL
-    ip address-range 172.16.4.2
-    exit
-  ruleset SNAT
-    to interface gi 1/0/1
-    rule 1
-      match source-address HQ
-      action source-nat pool WAN_POOL
-      enable
-end
-commit
-confirm
-
-<span style="color:#27ae60">✔ Проверка: ping 8.8.8.8 с каждого устройства</span></pre>`,
-
-    'ssh': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">Выполняется одинаково на HQ-SRV и BR-SRV</span>
-
-vim /etc/openssh/sshd_config
-  Port 2026
-  AllowUsers sshuser
-  MaxAuthTries 2
-  Banner /etc/openssh/banner
-
-echo "Authorized access only" > /etc/openssh/banner
-systemctl restart sshd
-
-<b>Проверка подключения:</b>
-ssh sshuser@(адрес_сервера) -p 2026</pre>`,
-
-    'tunnel': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">Меняем только айпишники при настройке BR-RTR</span>
-
-hq-rtr(config)# tunnel gre 1
-  description to-br-rtr
-  ip firewall disable
-  local address 172.16.4.2
-  remote address 172.16.5.2
-  ip address 100.10.10.1/30
-  ttl 16
-  enable
-  exit</pre>`,
-
-    'ospf': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;"><span style="color:#f7931e">Меняем айпишники при настройке BR-SRV</span>
-
-key-chain auth_ospf
-  key 1
-    key-string ascii-text P@ssw0rd
-    exit
-router ospf 1
-  router-id 100.10.10.1
-  area 0.0.0.0
-    network 192.168.10.0/26
-    network 192.168.10.64/28
-    network 192.168.10.80/29
-    enable
-    exit
-tunnel gre 1
-  ip ospf instance 1
-  ip ospf
-  ip ospf authentication key-chain auth_ospf
-  ip ospf authentication algorithm md5
-end
-commit
-confirm</pre>`,
-
-    'dhcp': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;">ip dhcp-server
-ip dhcp-server pool CLI-pool
-  network 192.168.10.64/28
-  address-range 192.168.10.66-192.168.10.78
-  default-router 192.168.10.65
-  dns-server 192.168.10.2
-  domain-name au-team.irpo
-end
-commit
-confirm</pre>`,
-    'isp': `<pre style="margin:0;font-family:monospace;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#222;">cd /etc/net/ifaces/ens19
-   cp options /etc/net/ifaces/ens20
-   y
-   cp options /etc/net/ifaces/ens21
-   y
-   vim options <span style="color:#f7931e">(static → dhcp)</span>
-   cd ens20
-   vim ipv4address <span style="color:#f7931e">(172.16.*.*)</span>
-   cd ens21
-   vim ipv4address <span style="color:#f7931e">(172.16.*.*)</span>
-   cd..
-   cd..
-   vim sysctl.conf <span style="color:#f7931e">(net.ipv4.ip_forward = 1)</span>
-   iptables -t nat -A POSTROUTING -o ens19 -j MASQUERADE
-   iptables-save >> /etc/sysconfig/iptables
-   systemctl enable --now iptables
-   reboot</pre>`,
-    // добавляй свои команды здесь: 'команда': 'ответ'
-  };
-
-  function addMessage(text, isBot = true) {
-    const messages = document.getElementById('chatMessages');
-    const row = document.createElement('div');
-    if (isBot) {
-      row.className = 'bot-message';
-      row.innerHTML = `<div class="avatar">🤖</div><div class="bubble">${text}</div>`;
-    } else {
-      row.style.cssText = 'display:flex;justify-content:flex-end;';
-      row.innerHTML = `<div style="background:#1a1a2e;color:#fff;border-radius:12px 0 12px 12px;padding:10px 14px;font-size:14px;max-width:240px;">${text}</div>`;
-    }
-    messages.appendChild(row);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function clearMessages() {
-    const messages = document.getElementById('chatMessages');
-    // Оставляем только первые 2 элемента (bubble + subtext)
-    while (messages.children.length > 2) {
-      messages.removeChild(messages.lastChild);
-    }
-  }
-
-  function handleSend() {
-    const input = document.getElementById('chatInput');
-    const text = input.value.trim();
-    if (!text) return;
-    input.value = '';
-
-    // Команда очистки
-    if (text === 'x') {
-      clearMessages();
-      return;
-    }
-
-    // Показать сообщение пользователя
-    addMessage(text, false);
-
-    // Проверка команд
-    const lower = text.toLowerCase();
-    if (COMMANDS[lower]) {
-      setTimeout(() => addMessage(COMMANDS[lower], true), 300);
-    } else {
-      setTimeout(() => addMessage('Команда не распознана. Попробуй ещё раз.', true), 300);
-    }
-  }
-
-  // Отправка по Enter
-  document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('chatInput');
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') handleSend();
-    });
-  });
-</script>
-  <script>
-  // ── TOOLTIP POSITION ──
-  document.addEventListener('mousemove', function(e) {
-    document.querySelectorAll('.rm-tip-wrap').forEach(function(wrap) {
-      var tip = wrap.querySelector('.rm-tip-box');
-      if (!tip) return;
-      // Only reposition if mouse is over the wrap but NOT over the tip itself
-      if (wrap.matches(':hover') && !tip.matches(':hover')) {
-        var x = e.clientX + 14;
-        var y = e.clientY + 14;
-        var w = 260, h = 200;
-        if (x + w > window.innerWidth - 10) x = e.clientX - w - 10;
-        if (y + h > window.innerHeight - 10) y = e.clientY - h - 10;
-        if (y < 10) y = 10;
-        tip.style.left = x + 'px';
-        tip.style.top  = y + 'px';
-      }
-    });
-  });
-</script>
-  <!-- ========== END HUBBOT WIDGET ========== -->
 
 </body></html>
